@@ -270,6 +270,7 @@ function clacExp(exp: string) {
     if (isOperator(one)) {
       let operatNum1 = stack.pop()
       let operatNum2 = stack.pop()
+      console.log(1)
       // let expStr = `${operatNum2}${one}${operatNum1}`
       // let res = eval(expStr)
       // stack.push(res)
