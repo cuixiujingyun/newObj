@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .jinggaoPhone,
+    .jinggaoEmail,
+    .jinggaoWetChar,
+    .jinggaoQQ {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <span>手机号：</span><input type="text" placeholder="请输入手机号" id='phoneNumber' onkeyup="phoneNumber"><span
+    class='jinggaoPhone'>输入错误</span><br />
+  <span>邮箱：</span><input type="text" placeholder="请输入邮箱号" id='email' onkeyup="email"><span
+    class='jinggaoEmail'>输入错误</span><br />
+  <span>微信：</span><input type="text" placeholder="请输入微信号" id='wetChar' onkeyup="wetChar"><span
+    class='jinggaoWetChar'>输入错误</span><br />
+  <span>QQ：</span><input type="text" placeholder="请输入QQ号" id='QQ' onkeyup="QQ"><span class='jinggaoQQ'
+    onkeyup="QQ">输入错误</span><br />
+</body>
+
+<script>
+  var phoneNumber = document.getElementById('phoneNumber')
+  var jgphone = document.getElementsByClassName('jinggaoPhone')[0]
+  var email = document.getElementById('email')
+  var wetChar = document.getElementById('wetChar')
+  var QQ = document.getElementById('QQ')
+  console.log(phoneNumber, email, wetChar, QQ)
+
+
+  var head = /^1[3456789]\d{9}&/
+  phoneNumber.addEventListener('keyup', () => {
+    value = phoneNumber.value
+    if (!head.test(value)) {
+      jgphone.style.display = 'block'
+      jgphone.style.color = 'red'
+      if (phoneNumber.value == '') {
+        jgphone.style.display = 'none'
+      }
+
+    } else {
+      jgphone.style.display = 'none'
+    }
+
+  })
+</script>
+
+</html>
