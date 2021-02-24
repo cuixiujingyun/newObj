@@ -307,4 +307,111 @@ let result = clacExp(arr)
 let a = 'hellow world'
 let aArr = a.split('')
 
-console.log(aArr)
+enum Str {
+  A = 'hellow',
+  B = 'world'
+}
+
+let hel: string = Str.A
+let wor: string = Str.B
+
+console.log(hel + ' ' + wor)
+
+let person: {
+  name: string;
+  age: number;
+  sayHi: (name: string) => void;
+} = {
+  name: '崔修静赟',
+  age: 29,
+  sayHi: (name: string) => {
+    console.log(name + ' say:Hellow')
+  }
+}
+
+enum Gender {
+  man = '男',
+  woman = '女',
+}
+
+interface IUer {
+  name: string;
+  age: number;
+  gender: Gender;
+  sayHi: () => void
+}
+
+let person1: IUer = {
+  name: '崔云',
+  age: 29,
+  gender: Gender.man,
+  sayHi: () => {
+    console.log('你好')
+  }
+}
+
+let people = person
+people.name = 'CuixiuJingyun'
+// console.log(people.sayHi(people.name))
+let people1 = person1
+people1.name = 'CuiYun';
+
+let z: [number, string, boolean] = [1, '1', true]
+
+
+interface IFace {
+  (one: string, two: number): string
+}
+
+let face: IFace
+
+face = function (one: string, two: number): string {
+  return `${one}${two}`
+}
+
+class Animal {
+  move(distanceInMeters: number = 0) {
+    console.log(`Animal moved ${distanceInMeters}m.`);
+  }
+}
+
+class Dog extends Animal {
+  bark() {
+    console.log('Woof! Woof!');
+  }
+}
+
+const dog = new Dog();
+dog.bark();
+dog.move(10);
+dog.bark();
+
+class Person {
+  private name: string
+  constructor(name: string) {
+    this.name = name
+  }
+  run(): string {
+    return `${this.name}在运动`
+  }
+}
+let p = new Person('李四');
+// console.log(p.name)//[ts] 属性“name”受保护，只能在类“Person”及其子类中访问。
+// console.log(p.run())
+
+
+class Web extends Person {
+  constructor(name: string) {
+    super(name)
+  }
+  work(): string {
+    return `${this.name}在工作`//[ts] 属性“name”为私有属性，只能在类“Person”中访问。
+  }
+}
+let web = new Web('成龙')
+console.log(web.name)//[ts] 属性“name”为私有属性，只能在类“Person”中访问。
+console.log(p.name)
+
+let arr12=[1,2,3]
+
+arr12.
